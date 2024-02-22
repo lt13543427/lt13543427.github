@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            margin:0;
+            width:100%;
+            height:100vh;
+            background-color:lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .body-yo{
+            width:300px;
+            height:300px;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+            border-radius:20px;
+        }
+
+        .text1{
+            width:200px;
+            height:20px;
+            margin-bottom:10px;
+            border-radius:10px;
+        }
+
+        .text2{
+            width:200px;
+            height:20px;
+            margin-bottom:10px;
+            border-radius:10px;
+        }
+
+        button{
+            width:40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+    <div class="body-yo">
+        <input class="text1" type="number">
+        <input class="text2" type="number">
+    <br/>
+    <!-- </br> -->
+    <div class="div">
+        <button class="plus">+</button>
+        <button class="minus">-</button>
+        <button class="times">x</button>
+        <button class="divided">/</button>
+    </div>
+    <br/>
+    <!-- </br> -->
+    <div>答案:<span class="answer"></span></div>
+    <br/>
+    <br/>
+    <button class="clear">清除</button>
+    </div>
+
+    <script>
+        let text1 = document.querySelector('.text1')
+        let text2 = document.querySelector('.text2')
+    
+        let plusBtn = document.querySelector('.plus')
+        let minusBtn = document.querySelector('.minus')
+        let timesBtn = document.querySelector('.times')
+        let dividedBtn = document.querySelector('.divided')
+    
+        let answers = document.querySelector('.answer')
+        let clearBtn = document.querySelector('.clear')
+    
+        clearBtn.addEventListener('click',function(){
+            text1.value = '';
+            text2.value = '';
+            answers.innerHTML = '';
+        });
+    
+        plusBtn.addEventListener('click',function(){
+            let answer = +text1.value + +text2.value;
+            console.log(answer);
+            answers.innerHTML = answer;
+        });
+    
+        minusBtn.addEventListener('click',function(){
+            let answer = text1.value * 1 - text2.value * 1;
+            console.log(answer);
+            answers.innerHTML = answer;
+        });
+        
+        timesBtn.addEventListener('click',function(){
+            let answer = text1.value * 1 * text2.value * 1;
+            console.log(answer);
+            answers.innerHTML = answer;
+        });
+    
+        dividedBtn.addEventListener('click',function(){
+            let answer = text1.value * 1 / text2.value * 1;
+            console.log(answer);
+            answers.innerHTML = answer;
+        });
+    
+    </script>
+</body>
+
+</html>

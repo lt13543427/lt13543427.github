@@ -1,0 +1,148 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color:darkblue;
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+
+.maru{
+    display:flex;
+    align-items:center;
+    padding:0 45px;
+    width:500px;
+    height: 275px;
+    background-color:darkblue;
+    overflow:hidden;
+    z-index:1;
+}
+
+.maru-body{
+  position:relative;
+  width:200px;
+  height:200px;
+  animation-name:maru-body;
+  animation-duration:9s;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+}
+
+.baju{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background-color: black;
+    position: absolute;
+    left:80px;
+    top:40px;
+    z-index:9;
+
+}
+
+.maru{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:50%;
+    border-radius:100px 100px 0 0;
+    transform-origin:bottom;
+    background:mediumturquoise;
+}
+
+.maru{
+    animation-duration:1s;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+    animation-name:maru;
+}
+
+.maru-t{
+    animation-name:maru-t;
+    background-color: yellow;
+    transform: rotate(-45deg);
+}
+
+@keyframes maru-t{
+    0%,100%{
+        transform: rotate(-45deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+}
+
+.maru-b{
+    animation-name:maru-b;
+    background-color: yellow ;
+    transform: rotate(225deg);
+}
+
+@keyframes maru-b{
+    0%,100%{
+        transform: rotate(225deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+}
+
+.esa-1{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background-color:red;
+    margin-left:1300px;
+    display: inline-block;
+    animation-name:esa-1;
+    animation-duration:10s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes esa-1{
+    50%{
+        display:block;
+    }
+    80%{
+        display:none;
+    }
+    100%{
+        display:none;
+    }  
+}
+
+@keyframes maru-body{
+    10%{
+        position:relative;
+        left:100px;
+    }
+    20%{
+        left:300px;
+    }
+    30%{
+        left:500px;
+    }
+    40%{
+        left:700px;
+    }
+    50%{
+        left:900px;
+    }
+    60%{
+        left:1000px;
+    }
+    70%{
+        left:1200px;
+    }
+    80%{
+        left:1500px;
+    }
+    100%{
+        left:1800px;
+    }
+}

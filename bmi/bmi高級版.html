@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bmi計算機</title>
+<link rel="stylesheet" href="./bmi高級版.css">
+</head>
+<body>
+    <div class="bmi-box">
+        <div class="h1-box">
+            <h1 class="title">BMI 計算機</h1>
+        </div>
+        <div class="p-box">
+            <p>
+                身體質量指數(Body Mass Index , 簡稱BMI)是公認用來估計肥胖程度的方法
+            </p>
+            <p>
+                BMI = 體重(公斤) / 身高的平方(公尺)
+            </p>
+        </div>
+        <div class="function-box">
+            <div class="dener-box">性別:
+                <input id="male" type="radio" name="gender" value="男"><label for="male">男</label>
+                <input id="female" type="radio" name="gender" value="女"><label for="female">女</label>
+            </div>
+            <div class="enter-box">
+                我的身高:<input class="height" type="number">公分
+                我的體重:<input class="weight" type="number">公斤
+            </div>
+            <div class="btn-box">
+                <button class="calc">計算</button>
+                <button class="reset">重新填寫</button>
+            </div>
+        </div>  
+    <p/>
+    <div class="results-box">
+        結果:<span class="results"></span>
+        評語:<span class="comments"></span>
+    </div>
+    <p/>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="3">BMI值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>男性</td>
+                <td>女性</td>
+            </tr>
+            <tr>
+                <td class="td-1">體重過輕</td>
+                <td class="td-2"><20</td>
+                <td class="td-3"><19</td>
+            </tr>
+            <tr>
+                <td class="td-1">正常範圍</td>
+                <td class="td-2">20~25</td>
+                <td class="td-3">19~25</td>
+            </tr>
+            <tr>
+                <td class="td-1">體重過重</td>
+                <td class="td-2">25~30</td>
+                <td class="td-3">25~30</td>
+            </tr>
+            <tr>
+                <td class="td-1">肥胖</td>
+                <td class="td-2">30~40</td>
+                <td class="td-3">30~40</td>
+            </tr>
+            <tr>
+                <td class="td-1">病態肥胖</td>
+                <td class="td-2">>40</td>
+                <td class="td-3">>40</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+</body>
+    <script>
+        let height = document.querySelector('.height');
+        let weight = document.querySelector('.weight');
+        let calcBtn = document.querySelector('.calc');
+        let resetBtn = document.querySelector('.reset');
+        let results = document.querySelector('.results');
+        let comment = document.querySelector('.comments');
+
+        function tdFEDFE1() {
+            tdAll_1[doRowOld].style.backgroundColor = '#FEDFE1'
+            tdAll_2[doRowOld].style.backgroundColor = '#FEDFE1'
+            tdAll_3[doRowOld].style.backgroundColor = '#FEDFE1'
+        }
+
+
+        
+        resetBtn.addEventListener('click',function(){
+         
+            height.value = '';
+            weight.value = '';
+            results.innerHTML = '';
+            comment.innerHTML = '';
+            male.checked = false;
+            female.checked = false;
+            tdFEDFE1()
+        });
+
+
+        calcBtn.addEventListener('click',function(){
+            tdFEDFE1()
+
+            let gender = document.querySelector('input[name="gender"]:checked')
+            if(!gender){
+                alert('請輸入性別');
+                return;
+            }
+            
+            if(!height.value){
+                alert('請輸入正確身高！');
+                return;
+            }
+            if(!weight.value){
+                 alert('請輸入正確體重！');
+                return;
+            }
+            
+
+            
+            console.log(gender);
+            let bmiresults = (+weight.value / (+height.value/100 * +height.value/100));
+            console.log(bmiresults);
+            results.innerHTML = bmiresults.toFixed(2);
+            let genderValue = gender.value
+
+            let commentText = '';
+            if (bmiresults <=20 && genderValue ==='男'){
+                commentText ='體重過輕'
+                doRowNew = 0;
+                tdAllBoy()
+            }else if(bmiresults >=20 &&bmiresults <=25 && genderValue ==='男'){
+                commentText ='正常範圍'
+                doRowNew = 1;
+                tdAllBoy()
+            }else if(bmiresults >=25 &&bmiresults <=30 && genderValue ==='男'){
+                commentText ='體重過重'
+                doRowNew = 2;
+                tdAllBoy()
+            }else if(bmiresults >=30 &&bmiresults <=40 && genderValue ==='男'){
+                commentText ='肥胖'
+                doRowNew = 3;
+                tdAllBoy()
+            }else if(bmiresults >=40 && genderValue ==='男'){
+                commentText ='病態肥胖'
+                doRowNew = 4;
+                tdAllBoy()
+            }else if(bmiresults <=19 && genderValue ==='女'){
+                commentText ='體重過輕';
+                doRowNew = 0;
+                tdAllGirl()
+            }else if(bmiresults >=19 &&bmiresults <=25 && genderValue ==='女'){
+                commentText ='正常範圍';
+                doRowNew = 1;
+                tdAllGirl()
+            }else if(bmiresults >=25 &&bmiresults <=30 && genderValue ==='女'){
+                commentText ='體重過重';
+                doRowNew = 2;
+                tdAllGirl()
+            }else if(bmiresults >=30 &&bmiresults <=40 && genderValue ==='女'){
+                commentText ='肥胖';
+                doRowNew = 3;
+                tdAllGirl()
+            }else if(bmiresults >=40 && genderValue ==='女'){
+                commentText ='病態肥胖';
+                doRowNew = 4;
+                tdAllGirl()
+            }
+            
+            
+            
+            comment.innerHTML = commentText;
+        });     
+
+        let tBody = document.querySelectorAll('tbody'); 
+        let tdAll_1 = document.querySelectorAll('.td-1'); 
+        let tdAll_2 = document.querySelectorAll('.td-2'); 
+        let tdAll_3 = document.querySelectorAll('.td-3');
+
+
+        let doRowNew= 0 ;
+        let doRowOld = 0;
+        tdAll_1[0].style.backgroundColor = '#FEDFE1'
+        tdAll_2[0].style.backgroundColor = '#FEDFE1'
+        tdAll_3[0].style.backgroundColor = '#FEDFE1'
+        doRowOld = doRowNew;
+
+
+        function tdAllBoy(){
+            console.log('我在處理男性');
+            tdAll_1[doRowNew].style.backgroundColor = 'white'
+            tdAll_2[doRowNew].style.backgroundColor = 'white'
+        }
+
+        function tdAllGirl(){
+            console.log('我在處理女性');
+            tdAll_1[doRowNew].style.backgroundColor = 'white'
+            tdAll_3[doRowNew].style.backgroundColor = 'white'
+        }
+
+        function tdFEDFE1() {
+            tdAll_1[doRowNew].style.backgroundColor = '#FEDFE1'
+            tdAll_2[doRowNew].style.backgroundColor = '#FEDFE1'
+            tdAll_3[doRowNew].style.backgroundColor = '#FEDFE1'
+        }
+
+    </script>
+</html>

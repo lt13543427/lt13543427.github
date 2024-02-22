@@ -1,0 +1,370 @@
+body{
+    margin:0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.all{
+    width:100%;
+    height:100vh;
+    background-color:#FEDFE1; 
+    display:flex;
+}
+
+@media(max-width:1200px){
+    .all{
+        display:flex;
+        flex-direction: column;
+    }
+}
+
+.nav{
+    width:300px;
+    height:100%;
+    background-color:#E87A90;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+@media(max-width:1200px){
+    .nav{
+        width:100%;
+        height:100px;
+        display:flex;
+        flex-direction:row;
+        justify-content: space-between;
+    }
+}
+
+
+.logo-box{
+    height:200px;
+    width:200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+@media(max-width:1200px){
+    .logo-box{
+        width:30%;
+        height:100px;
+        justify-content: flex-start;
+    }
+}
+
+@media(max-width:920px){
+    .logo-box{
+        width:50%; 
+        height:100px;
+        justify-content:center;
+        flex-grow:2;
+        position:absolute;
+        left:25%;
+    }
+}
+.logo{
+    width:80px;
+    height:80px;
+    border-radius:10px;
+    background-image: url(./img/logo.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+}
+
+@media(max-width:1200px){
+    .logo{
+        margin-left:10px;
+    }
+}
+
+@media(max-width:920px){
+    .logo{
+        margin-left:0px;
+    }
+}
+
+.btn-box{
+    width:300px;
+    height:200px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+@media(max-width:1200px){
+    .btn-box{
+        width:70%;
+        height:100px;
+        flex-direction:row;
+        margin-right:10px;
+    }
+}
+
+@media(max-width:920px){
+    .btn-box{
+        display:flex;
+        width:250px;
+        height:200px;
+        background-color:#E87A90;
+        flex-direction:column;
+        position:absolute;
+        top:100px;
+        transform:scaleY(0);
+    }
+}
+
+.btn{
+    width:200px;
+    height:50px;
+    border-radius:10px;
+    background-color:#FEDFE1;
+    display:block;
+    font-size:28px;
+    font-weight: bold;
+    text-align: center;
+    line-height:50px;
+    text-decoration:none;
+}
+
+@media(max-width:1200px){
+    .btn{
+        width:150px;
+        margin-left:10px;
+    }
+}
+
+@media(max-width:920px){
+    .btn{
+        display:flex;
+        justify-content: center;
+    }
+}
+
+.center-all{
+    width:calc(100% - 300px) ;
+    height:100%;
+    background-color:#dc9fb4;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width:1350px){
+    .center-all{
+        width:calc(100% - 300px);
+        height:100%;
+    }
+}
+
+@media(max-width:1200px){
+    .center-all{
+        width:100%;
+        height:calc(100% - 100px);
+    }
+}
+
+.center-box{
+    width:1000px;
+    height:550px;
+    display:flex;
+    gap:10px;
+}
+
+@media(max-width:1350px){
+    .center-box{
+        width:860px;
+        height:550px;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media(max-width:1200px){
+    .center-box{
+        height:800px;
+    }
+}
+
+@media(max-width:920px){
+    .center-box{
+        width:100%;
+        flex-wrap: nowrap;
+        flex-direction:column;
+        height:calc(100vh - 100px);
+        gap:0px;
+    }
+}
+
+.img{
+    width:calc(100%/3);
+    height:100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+    display: flex;
+}
+
+@media(max-width:1350px){
+    .img{
+        height:calc(50% - 5px);
+    }    
+}
+@media(max-width:1200px){
+    .img{
+        height:calc(50% - 5px);
+    }
+}
+
+@media(max-width:920px){
+    .img{
+        height:calc(100%/3);
+    }
+}
+
+.img:hover{
+    transform: scale(0.9);
+    transition-duration:1s;
+    border-radius:20px;
+}
+
+.img:hover{
+    transform: scale(0.9);
+    transition-duration:1s;
+    border-radius:20px;
+}
+
+.img:active{
+    transform:rotateY(180deg);
+}
+
+.img-1:active{
+    background-image:url(./img/千龍.jpg);
+}
+
+.img-2:active{
+    background-image:url(./img/小千.jpg);
+}
+
+.img-3:active{
+    background-image:url(./img/hakuryu.jpg);
+}
+
+.img-1{
+    background-image:url(./img/千與千尋.jpg);
+}
+
+@media(max-width:1350px){
+    .img-1{
+        width:100%;
+        /* margin-bottom:10px; */
+    }
+}
+
+@media(max-width:920px){
+    .img-1{
+        margin-bottom:0px;
+    }
+}
+
+.img-2{
+    background-image:url(./img/jihiro.jpg);
+}
+
+@media(max-width:1350px){
+    .img-2{
+        width:calc(100%/2 - 5px);   
+    }
+}
+
+@media(max-width:920px){
+    .img-2{
+        width:100%;
+    }
+}
+
+.img-3{
+    background-image:url(./img/白龍.jpg);
+}
+
+@media(max-width:1350px){
+    .img-3{
+        width:calc(100%/2 - 5px);
+        display:flex;
+    }
+}
+
+@media(max-width:920px){
+    .img-3{
+        width:100%;
+    }
+}
+
+.ham-menu{
+    display:flex;
+}
+
+.ham-menu-btn {
+    background-color:#FEDFE1;
+    width: 80px;
+    height: 80px;
+    display:none    ;
+    position:relative;
+}
+@media(max-width:920px){
+    .ham-menu-btn{  
+        display:block;
+        display:flex;
+        flex-direction:column;
+        margin-left:10px;
+    }
+}
+
+.ham-menu-btn .line {
+    background-color:#db4d6d;
+    width:80%;
+    height:5px;
+    position:absolute;
+    left:50%;
+    transform:translate(-50%, -50%);
+    transition:1s;
+}
+
+.ham-menu-btn #line-1 {
+    top:25%;
+}
+
+.ham-menu-btn #line-2 {
+    top:50%;
+}
+
+.ham-menu-btn #line-3 {
+    top:75%;
+}
+
+#ham-menu:checked+.ham-menu-btn #line-1{
+    top:50%;
+    transform:translate(-50%, -50%) rotate(-45deg);
+}
+
+#ham-menu:checked+.ham-menu-btn #line-2{
+    display:none;
+}
+
+#ham-menu:checked+.ham-menu-btn #line-3{
+    top:50%;
+    transform:translate(-50%, -50%) rotate(45deg);
+}
+
+#ham-menu:checked ~.btn-box{
+    transform:scaley(1);
+    transition-duration:1s;
+}
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天氣</title>
+    <link rel="stylesheet" href="氣象局.css">
+</head>
+<body>
+    <div class="title">
+        <div class="logo">
+            <span>每日天氣概況</span>
+        </div>
+        <div class="btn-box">
+            <button class="btn">全國</button>
+            <button class="btn">北部</button>
+            <button class="btn">中部</button>
+            <button class="btn">南部</button>
+            <button class="btn">東部</button>
+            <button class="btn">外島</button>
+        </div>
+        <div class="ham-menu">
+            <input type="checkbox" id="menu" class="menu" hidden>
+            <label for="menu"><img src="./img/漢堡條.png"></label>
+        </div>
+        <div class="valid-date"></div>
+    </div>
+    <div class="ct-card"></div>
+</body>
+<script src="./氣象局.js"></script>
+</html>

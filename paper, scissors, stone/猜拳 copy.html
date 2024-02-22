@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最初はグー、じゃんけん</title>*
+    <link rel="stylesheet" href="猜拳 copy.css">
+</head>
+<body>
+    <div class="list-box">
+        <div class="title">對戰紀錄</div>
+        <div class="list"></div>
+        <button class="reset">清除紀錄</button>
+    </div>
+    <div class="game-box">
+        <div class="button-box">
+            <button class="scissors"></button>
+            <button class="rock"></button>
+            <button class="paper"></button>
+        </div>
+        <div class="pk-box">
+            <div class="my-result">
+                <img class="myresult" src="" alt="">
+            </div>
+            <div class="enemy-result">
+                <img class="enemyresult" src="" alt="">
+            </div>
+        </div>
+        <div class="enemy-box">
+            <div class="lines">ソーナンス~</div>
+            <div class="enemy"></div>
+            <div class="result"></div>
+        </div>
+    </div>
+</body>
+<script>
+    let scissorsBtn = document.querySelector('.scissors');
+    let rockBtn = document.querySelector('.rock');
+    let paperBtn = document.querySelector('.paper');
+    let result = document.querySelector('.result');
+    let myResult = document.querySelector('.my-result');
+    let enemyResult = document.querySelector('.enemy-result');
+    let listArea = document.querySelector('.list');
+    let resetBtn = document.querySelector ('.reset');
+
+    scissorsBtn.addEventListener('click', () =>{
+        mymove('剪刀');
+    });
+    rockBtn.addEventListener('click', () =>{
+        mymove('石頭');
+    });
+    paperBtn.addEventListener('click', () =>{
+        mymove('布');
+    });
+
+    let arr=[];
+
+    function mymove(type){
+    let pcMove = Math.floor(Math.random()*3); 
+
+    if(type === '剪刀'){
+    myResult.querySelector('img').src = './img/剪刀.png';
+    } else if(type === '石頭'){
+    myResult.querySelector('img').src = './img/石頭.png';
+    } else if(type === '布'){
+    myResult.querySelector('img').src = './img/布.png';
+    }
+
+    if ( pcMove === 0 ){
+    enemyResult.querySelector('img').src = './img/剪刀.png';
+        if (type ==='布'){
+            result.innerHTML = '輸了嫩咖';
+            arr.push('輸家')
+            // console.log(arr);
+            list()
+        } else if (type === '石頭'){
+            result.innerHTML = '不是你贏是我讓你';
+            arr.push('贏家')
+            // console.log(arr);
+            list()
+        } else if(type === '剪刀'){
+            result.innerHTML = '平手算你輸';
+            arr.push('平局')
+            // console.log(arr);
+            list()
+        }
+    }
+    else if( pcMove === 1 ){
+        enemyResult.querySelector('img').src = './img/石頭.png';
+        if (type ==='布'){
+            result.innerHTML = '不是你贏是我讓你';
+            arr.push('贏家') 
+            list()
+        } else if (type === '石頭'){
+            result.innerHTML = '平手算你輸';
+            arr.push('平局')
+            list()
+        } else if(type === '剪刀'){
+            result.innerHTML = '輸了嫩咖';
+            arr.push('輸家')
+            list()
+        }
+    }
+    else if( pcMove === 2 ){
+        enemyResult.querySelector('img').src = './img/布.png';
+        if (type ==='布'){
+            result.innerHTML = '平手算你輸';
+            arr.push('平局')
+            list()
+        } else if (type === '石頭'){
+            result.innerHTML = '輸了嫩咖';
+            arr.push('輸家')
+            list()
+        } else if(type === '剪刀'){
+            result.innerHTML = '不是你贏是我讓你';
+            arr.push('贏家')
+            list()
+        }
+    }
+}
+
+function list(){
+    listArea.innerHTML = '';
+        arr.forEach((item, index) => {
+        // console.log(item);
+        listArea.innerHTML += `<br>${item},`;
+        });
+}
+function winner(){
+    listArea.innerHTML ='贏家';
+}
+function draw(){
+    llistArea.innerHTML ='平局';
+}
+
+resetBtn.addEventListener('click',() =>{
+    listArea.innerHTML ='';
+    arr = []; 
+    arr = 
+    arr
+})
+
+</script>
+</html>
